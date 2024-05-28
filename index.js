@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 
-import { Text, View, StyleSheet, TextInput } from "react-native";
+import { Text, View, StyleSheet, TextInput, Platform } from "react-native";
 
 const Timer = ({ initialSeconds }) => {
   const textRef = useRef(null);
@@ -87,7 +87,9 @@ const Timer = ({ initialSeconds }) => {
           ref={textRef}
           style={styles.text}
         ></TextInput>
-        <Text style={{ fontWeight: "500", fontSize: 10, color: "#000000" }}>
+        <Text
+          style={[styles.text1, { bottom: Platform.OS === "ios" ? 0 : 11 }]}
+        >
           J
         </Text>
       </View>
@@ -97,7 +99,9 @@ const Timer = ({ initialSeconds }) => {
           ref={textRef1}
           style={styles.text}
         ></TextInput>
-        <Text style={{ fontWeight: "500", fontSize: 10, color: "#000000" }}>
+        <Text
+          style={[styles.text1, { bottom: Platform.OS === "ios" ? 0 : 11 }]}
+        >
           H
         </Text>
       </View>
@@ -108,7 +112,9 @@ const Timer = ({ initialSeconds }) => {
           ref={textRef2}
           style={styles.text}
         ></TextInput>
-        <Text style={{ fontWeight: "500", fontSize: 10, color: "#000000" }}>
+        <Text
+          style={[styles.text1, { bottom: Platform.OS === "ios" ? 0 : 11 }]}
+        >
           Min
         </Text>
       </View>
@@ -119,7 +125,9 @@ const Timer = ({ initialSeconds }) => {
           ref={textRef3}
           style={styles.text}
         ></TextInput>
-        <Text style={{ fontWeight: "500", fontSize: 10, color: "#000000" }}>
+        <Text
+          style={[styles.text1, { bottom: Platform.OS === "ios" ? 0 : 11 }]}
+        >
           Sec
         </Text>
       </View>
@@ -151,6 +159,7 @@ const styles = StyleSheet.create({
     marginVertical: 3,
     paddingVertical: 3,
   },
+  text1: { fontWeight: "500", fontSize: 10, color: "#000000" },
 });
 
 export default Timer;
