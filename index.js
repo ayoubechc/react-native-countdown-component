@@ -65,8 +65,6 @@ const Timer = ({ initialSeconds }) => {
       }
     };
 
-    updateText();
-
     const interval = setInterval(() => {
       secondsRef.current -= 1;
       if (secondsRef.current >= 0) {
